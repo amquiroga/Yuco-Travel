@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yuco Travel — Patagonia de Lujo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --sand:    #f5f0e8;
+      --cream:   #faf8f4;
+      --fog:     #e8e4dc;
+      --sage:    #b8c9b8;
+      --sage-dk: #7a9e7e;
+      --sage-lt: #deeade;
+      --sky:     #c2d8e8;
+      --sky-lt:  #e8f2f8;
+      --terr:    #c4845c;
+      --terr-lt: #f0ddd2;
+      --ink:     #1e2420;
+      --ink-md:  #3a4240;
+      --ink-lt:  #6b7570;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.4rem 5vw;
+      background: rgba(250,248,244,0.88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(30,36,32,0.07);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 4px 40px rgba(30,36,32,0.07); }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: var(--ink);
+    }
+    .logo span { color: var(--sage-dk); font-style: italic; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+    .nav-links a {
+      color: var(--ink-lt);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      transition: color 0.25s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta {
+      padding: 0.65rem 1.6rem !important;
+      background: var(--ink) !important;
+      color: var(--cream) !important;
+      border-radius: 100px;
+      font-weight: 500 !important;
+      letter-spacing: 0.02em !important;
+      transition: background 0.3s !important;
+    }
+    .nav-cta:hover { background: var(--sage-dk) !important; }
+
+    /* HERO */
+    .hero {
+      height: 100vh;
+      min-height: 680px;
+      position: relative;
+      display: grid;
+      grid-template-columns: 55% 45%;
+      overflow: hidden;
+    }
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 10rem 4vw 5rem 5vw;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--terr-lt);
+      color: var(--terr);
+      padding: 0.45rem 1.1rem;
+      border-radius: 100px;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      width: fit-content;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.2s forwards;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--terr);
+      border-radius: 50%;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 5vw, 5.2rem);
+      font-weight: 400;
+      line-height: 1.08;
+      color: var(--ink);
+      margin-bottom: 1.8rem;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.35s forwards;
+    }
+    .hero-title em { font-style: italic; color: var(--sage-dk); }
+    .hero-desc {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--ink-lt);
+      max-width: 420px;
+      margin-bottom: 2.8rem;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.5s forwards;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.65s forwards;
+    }
+    .btn-primary {
+      padding: 1rem 2.2rem;
+      background: var(--ink);
+      color: var(--cream);
+      border-radius: 100px;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn-primary:hover { background: var(--sage-dk); transform: translateY(-2px); }
+    .btn-ghost {
+      font-size: 0.88rem;
+      color: var(--ink-md);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.3s;
+    }
+    .btn-ghost:hover { color: var(--sage-dk); }
+    .btn-ghost::after { content: '↓'; }
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 4rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--fog);
+      opacity: 0;
+      animation: fadeUp 0.9s 0.8s forwards;
+    }
+    .hstat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .hstat-label { font-size: 0.68rem; color: var(--ink-lt); letter-spacing: 0.03em; }
+
+    /* Hero right */
+    .hero-right { position: relative; overflow: hidden; }
+    .hero-main-img {
+      position: absolute; inset: 0;
+      object-fit: cover; width: 100%; height: 100%;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, var(--cream) 0%, rgba(250,248,244,0.15) 30%, transparent 60%);
+      z-index: 1;
+    }
+    .hero-float-card {
+      position: absolute;
+      z-index: 3;
+      background: rgba(250,248,244,0.93);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 1rem 1.3rem;
+      box-shadow: 0 8px 40px rgba(30,36,32,0.12);
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+    .card-1 { bottom: 26%; right: 6%; animation: float 5s ease-in-out infinite; }
+    .card-2 { top: 16%; right: 3%; animation: float 5s 2.5s ease-in-out infinite; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .fcard-icon {
+      width: 42px; height: 42px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+    }
+    .fcard-icon.green { background: var(--sage-lt); }
+    .fcard-icon.orange { background: var(--terr-lt); }
+    .fcard-title { font-size: 0.8rem; font-weight: 500; color: var(--ink); }
+    .fcard-sub { font-size: 0.65rem; color: var(--ink-lt); margin-top: 0.1rem; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* SECTION LABEL */
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--sage-dk);
+      margin-bottom: 1.2rem;
+    }
+    .section-label::before {
+      content: '';
+      width: 26px; height: 1.5px;
+      background: var(--sage-dk);
+      display: block;
+    }
+
+    /* EXPERIENCES */
+    .exp-section { padding: 7rem 5vw; background: var(--sand); }
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3.5rem;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .exp-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--ink);
+    }
+    .exp-title em { font-style: italic; color: var(--sage-dk); }
+    .exp-sub {
+      font-size: 0.85rem;
+      color: var(--ink-lt);
+      line-height: 1.8;
+      max-width: 280px;
+      text-align: right;
+    }
+    .exp-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+    }
+    .exp-card {
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      background: var(--cream);
+      box-shadow: 0 2px 16px rgba(30,36,32,0.07);
+      transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94),
+                  box-shadow 0.4s;
+    }
+    .exp-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 60px rgba(30,36,32,0.14);
+    }
+    .exp-card.wide { grid-column: span 2; }
+    .exp-img-wrap { position: relative; overflow: hidden; aspect-ratio: 4/3; }
+    .exp-card.wide .exp-img-wrap { aspect-ratio: 16/9; }
+    .exp-img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .exp-card:hover .exp-img { transform: scale(1.06); }
+    .exp-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(30,36,32,0.5) 0%, transparent 60%);
+    }
+    .exp-tag-pill {
+      position: absolute;
+      top: 1rem; left: 1rem;
+      background: rgba(250,248,244,0.93);
+      backdrop-filter: blur(8px);
+      color: var(--ink-md);
+      padding: 0.35rem 0.9rem;
+      border-radius: 100px;
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .exp-body { padding: 1.4rem 1.6rem 1.8rem; }
+    .exp-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.22rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+      line-height: 1.25;
+    }
+    .exp-card.wide .exp-name { font-size: 1.55rem; }
+    .exp-desc-text {
+      font-size: 0.78rem;
+      color: var(--ink-lt);
+      line-height: 1.75;
+      margin-bottom: 1.2rem;
+    }
+    .exp-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .exp-duration {
+      font-size: 0.68rem;
+      color: var(--ink-lt);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .exp-duration::before { content: '⏱'; font-size: 0.75rem; }
+    .exp-link {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: var(--sage-lt);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--sage-dk);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .exp-card:hover .exp-link {
+      background: var(--sage-dk);
+      color: var(--cream);
+      transform: rotate(45deg);
+    }
+
+    /* ABOUT */
+    .about-wrap {
+      padding: 7rem 5vw;
+      background: var(--cream);
+    }
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7rem;
+      align-items: center;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    .about-imgs { position: relative; height: 560px; }
+    .about-img-main {
+      position: absolute;
+      top: 0; left: 0;
+      width: 75%; height: 82%;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(30,36,32,0.13);
+    }
+    .about-img-accent {
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 56%; height: 50%;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 12px 40px rgba(30,36,32,0.11);
+      border: 5px solid var(--cream);
+    }
+    .about-badge {
+      position: absolute;
+      bottom: 32%; left: -1.5rem;
+      background: var(--terr);
+      color: var(--cream);
+      padding: 1.1rem 1.4rem;
+      border-radius: 14px;
+      box-shadow: 0 8px 30px rgba(196,132,92,0.28);
+      font-size: 0.7rem;
+      font-weight: 500;
+      text-align: center;
+      line-height: 1.4;
+    }
+    .about-badge-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 500;
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .about-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.2vw, 2.8rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+    .about-title em { font-style: italic; color: var(--sage-dk); }
+    .about-text {
+      font-size: 0.88rem;
+      line-height: 1.95;
+      color: var(--ink-lt);
+      margin-bottom: 1.2rem;
+    }
+    .about-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 2rem;
+    }
+    .pill {
+      padding: 0.5rem 1.1rem;
+      border-radius: 100px;
+      font-size: 0.72rem;
+      font-weight: 400;
+    }
+    .pill-sage { background: var(--sage-lt); color: var(--sage-dk); }
+    .pill-sky  { background: var(--sky-lt);  color: #4a7a9e; }
+    .pill-terr { background: var(--terr-lt); color: var(--terr); }
+
+    /* DESTINATIONS */
+    .dest-section { background: var(--ink); padding: 7rem 5vw; }
+    .dest-inner { max-width: 1300px; margin: 0 auto; }
+    .dest-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: end;
+      margin-bottom: 4rem;
+    }
+    .dest-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.15;
+    }
+    .dest-title em { font-style: italic; color: var(--sage); }
+    .dest-sub {
+      font-size: 0.85rem;
+      color: rgba(232,228,220,0.5);
+      line-height: 1.85;
+    }
+    .dest-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
+    }
+    .dest-card {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      aspect-ratio: 2/3;
+      transition: transform 0.4s;
+    }
+    .dest-card:hover { transform: translateY(-6px); }
+    .dest-card:nth-child(2), .dest-card:nth-child(4) { margin-top: 2rem; }
+    .dest-card-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s;
+    }
+    .dest-card:hover .dest-card-img { transform: scale(1.08); }
+    .dest-card-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(20,30,24,0.85) 0%, rgba(20,30,24,0.15) 55%, transparent 100%);
+    }
+    .dest-card-content {
+      position: absolute;
+      bottom: 0;
+      padding: 1.4rem;
+    }
+    .dest-card-country {
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 0.35rem;
+    }
+    .dest-card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.2;
+    }
+
+    /* PROCESS */
+    .process-wrap { padding: 7rem 5vw; background: var(--sand); }
+    .process-inner { max-width: 1300px; margin: 0 auto; }
+    .process-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.2vw, 2.8rem);
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 4rem;
+      line-height: 1.2;
+    }
+    .process-title em { font-style: italic; color: var(--sage-dk); }
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    .process-card {
+      background: var(--cream);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      border: 1px solid var(--fog);
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .process-card:hover {
+      box-shadow: 0 12px 40px rgba(30,36,32,0.09);
+      transform: translateY(-4px);
+    }
+    .process-step-num {
+      width: 46px; height: 46px;
+      border-radius: 13px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      margin-bottom: 1.8rem;
+    }
+    .sn1 { background: var(--terr-lt); color: var(--terr); }
+    .sn2 { background: var(--sage-lt); color: var(--sage-dk); }
+    .sn3 { background: var(--sky-lt);  color: #4a7a9e; }
+    .sn4 { background: var(--fog);     color: var(--ink-md); }
+    .process-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.18rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.8rem;
+    }
+    .process-card-desc { font-size: 0.78rem; color: var(--ink-lt); line-height: 1.85; }
+
+    /* TESTIMONIAL */
+    .testimonial-wrap {
+      background: var(--sky-lt);
+      padding: 6rem 5vw;
+      text-align: center;
+    }
+    .testimonial-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 2.8vw, 2.3rem);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink);
+      max-width: 780px;
+      margin: 0 auto 2rem;
+      line-height: 1.55;
+    }
+    .testimonial-stars { font-size: 1rem; color: var(--terr); letter-spacing: 0.15em; margin-bottom: 1.5rem; }
+    .testimonial-author { font-size: 0.78rem; font-weight: 500; color: var(--ink-lt); letter-spacing: 0.04em; }
+
+    /* CONTACT */
+    .contact-wrap { padding: 7rem 5vw 5rem; background: var(--cream); }
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      max-width: 1300px;
+      margin: 0 auto;
+      align-items: start;
+    }
+    .contact-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.2vw, 2.8rem);
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 1.2rem;
+      line-height: 1.2;
+    }
+    .contact-title em { font-style: italic; color: var(--sage-dk); }
+    .contact-desc { font-size: 0.88rem; color: var(--ink-lt); line-height: 1.85; margin-bottom: 2.5rem; }
+    .contact-info-item {
+      display: flex; align-items: flex-start;
+      gap: 1rem; margin-bottom: 1.4rem;
+    }
+    .contact-info-icon {
+      width: 40px; height: 40px;
+      border-radius: 12px;
+      background: var(--sage-lt);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
+    }
+    .contact-info-label {
+      font-size: 0.63rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--ink-lt); margin-bottom: 0.2rem;
+    }
+    .contact-info-val { font-size: 0.85rem; color: var(--ink); }
+
+    .form-group { margin-bottom: 1rem; }
+    .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-label {
+      display: block;
+      font-size: 0.67rem; font-weight: 500;
+      letter-spacing: 0.07em; text-transform: uppercase;
+      color: var(--ink-md); margin-bottom: 0.5rem;
+    }
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 0.9rem 1.2rem;
+      border: 1.5px solid var(--fog);
+      border-radius: 12px;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: rgba(107,117,112,0.45); }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--sage-dk);
+      box-shadow: 0 0 0 4px rgba(122,158,126,0.1);
+    }
+    .form-select { appearance: none; cursor: pointer; }
+    .form-select option { background: var(--cream); }
+    .form-textarea { resize: vertical; min-height: 110px; }
+    .form-submit {
+      width: 100%; padding: 1.1rem;
+      background: var(--ink);
+      color: var(--cream);
+      border: none; border-radius: 100px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem; font-weight: 500;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      margin-top: 0.5rem;
+    }
+    .form-submit:hover { background: var(--sage-dk); transform: translateY(-2px); }
+
+    /* FOOTER */
+    footer { background: var(--sand); border-top: 1px solid var(--fog); padding: 4rem 5vw 2rem; }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 3rem; margin-bottom: 3rem;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; font-weight: 500;
+      color: var(--ink); margin-bottom: 0.8rem;
+    }
+    .footer-logo span { color: var(--sage-dk); font-style: italic; }
+    .footer-tagline { font-size: 0.78rem; color: var(--ink-lt); line-height: 1.8; }
+    .footer-col-title {
+      font-size: 0.65rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--ink); margin-bottom: 1.2rem;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+    .footer-links a {
+      color: var(--ink-lt); text-decoration: none;
+      font-size: 0.8rem; transition: color 0.25s;
+    }
+    .footer-links a:hover { color: var(--sage-dk); }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 2rem; border-top: 1px solid var(--fog);
+    }
+    .footer-copy { font-size: 0.72rem; color: var(--ink-lt); }
+
+    /* SCROLL REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.85s cubic-bezier(0.25,0.46,0.45,0.94),
+                  transform 0.85s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.22s; }
+    .d3 { transition-delay: 0.34s; }
+    .d4 { transition-delay: 0.46s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .hero-left { padding: 9rem 5vw 5rem; }
+      .about-inner { grid-template-columns: 1fr; }
+      .about-imgs { height: 380px; }
+      .about-badge { left: 0.5rem; }
+      .dest-header { grid-template-columns: 1fr; }
+      .dest-grid { grid-template-columns: repeat(2, 1fr); }
+      .dest-card:nth-child(2), .dest-card:nth-child(4) { margin-top: 0; }
+      .exp-grid { grid-template-columns: 1fr 1fr; }
+      .exp-card.wide { grid-column: span 2; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 600px) {
+      .exp-grid { grid-template-columns: 1fr; }
+      .exp-card.wide { grid-column: span 1; }
+      .dest-grid { grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+      .process-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .form-row-2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="logo">Yuco <span>Travel</span></div>
+  <ul class="nav-links">
+    <li><a href="#experiencias">Experiencias</a></li>
+    <li><a href="#destinos">Destinos</a></li>
+    <li><a href="#proceso">Proceso</a></li>
+    <li><a href="#contacto" class="nav-cta">Consultar</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-left">
+    <div class="hero-badge">Patagonia · Viajes de Lujo</div>
+    <h1 class="hero-title">
+      Donde el mundo<br>aún es <em>infinito</em>
+    </h1>
+    <p class="hero-desc">
+      Experiencias privadas e irrepetibles en los paisajes más salvajes del planeta. Cada viaje diseñado a medida, solo para vos.
+    </p>
+    <div class="hero-actions">
+      <a href="#contacto" class="btn-primary">Diseñar mi viaje →</a>
+      <a href="#experiencias" class="btn-ghost">Ver experiencias</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hstat-num">12+</div>
+        <div class="hstat-label">Años en Patagonia</div>
+      </div>
+      <div>
+        <div class="hstat-num">340+</div>
+        <div class="hstat-label">Viajeros acompañados</div>
+      </div>
+      <div>
+        <div class="hstat-num">100%</div>
+        <div class="hstat-label">Itinerarios únicos</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <img class="hero-main-img"
+      src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1200&q=85&fit=crop&crop=center"
+      alt="Patagonia landscape">
+    <div class="hero-overlay"></div>
+    <div class="hero-float-card card-1">
+      <div class="fcard-icon green">🏔️</div>
+      <div>
+        <div class="fcard-title">Torres del Paine</div>
+        <div class="fcard-sub">Acceso privado disponible</div>
+      </div>
+    </div>
+    <div class="hero-float-card card-2">
+      <div class="fcard-icon orange">⭐</div>
+      <div>
+        <div class="fcard-title">5.0 · 340 reseñas</div>
+        <div class="fcard-sub">Experiencia premium</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCES -->
+<section class="exp-section" id="experiencias">
+  <div class="exp-header reveal">
+    <div>
+      <div class="section-label">Lo que ofrecemos</div>
+      <h2 class="exp-title">Experiencias<br><em>diseñadas para pocos</em></h2>
+    </div>
+    <p class="exp-sub">Grupos pequeños, guías expertos, alojamientos únicos. La Patagonia en su versión más íntima.</p>
+  </div>
+
+  <div class="exp-grid">
+    <div class="exp-card wide reveal">
+      <div class="exp-img-wrap">
+        <img class="exp-img"
+          src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=80&fit=crop"
+          alt="Torres del Paine" loading="lazy">
+        <div class="exp-img-overlay"></div>
+        <div class="exp-tag-pill">Trekking · Expedición</div>
+      </div>
+      <div class="exp-body">
+        <div class="exp-name">Torres del Paine Privado</div>
+        <p class="exp-desc-text">Acceso exclusivo al circuito W con guías especializados, lodge de lujo y helicóptero de soporte incluido.</p>
+        <div class="exp-footer">
+          <span class="exp-duration">7–10 días</span>
+          <a href="#contacto" class="exp-link">↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card reveal d1">
+      <div class="exp-img-wrap">
+        <img class="exp-img"
+          src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=800&q=80&fit=crop"
+          alt="Glaciar Perito Moreno" loading="lazy">
+        <div class="exp-img-overlay"></div>
+        <div class="exp-tag-pill">Glaciares · Navegación</div>
+      </div>
+      <div class="exp-body">
+        <div class="exp-name">Perito Moreno en Yate</div>
+        <p class="exp-desc-text">Crucero privado con sommelier a bordo y noche flotante bajo el cielo austral.</p>
+        <div class="exp-footer">
+          <span class="exp-duration">4–5 días</span>
+          <a href="#contacto" class="exp-link">↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card reveal d2">
+      <div class="exp-img-wrap">
+        <img class="exp-img"
+          src="https://images.unsplash.com/photo-1583396618422-8e71e87c3ba8?w=800&q=80&fit=crop"
+          alt="Estancia Patagónica" loading="lazy">
+        <div class="exp-img-overlay"></div>
+        <div class="exp-tag-pill">Estancia · Cultura</div>
+      </div>
+      <div class="exp-body">
+        <div class="exp-name">Estancia Privada</div>
+        <p class="exp-desc-text">Inmersión gaucha auténtica con gastronomía de autor y cabalgatas al atardecer.</p>
+        <div class="exp-footer">
+          <span class="exp-duration">3–4 días</span>
+          <a href="#contacto" class="exp-link">↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card reveal d3">
+      <div class="exp-img-wrap">
+        <img class="exp-img"
+          src="https://images.unsplash.com/photo-1534254842987-4de97b7a2a12?w=800&q=80&fit=crop"
+          alt="Cielo nocturno Patagonia" loading="lazy">
+        <div class="exp-img-overlay"></div>
+        <div class="exp-tag-pill">Astronomía · Silencio</div>
+      </div>
+      <div class="exp-body">
+        <div class="exp-name">Noche Austral</div>
+        <p class="exp-desc-text">Observación del cielo más oscuro del mundo con astrónomo privado y lodge remoto.</p>
+        <div class="exp-footer">
+          <span class="exp-duration">2–3 días</span>
+          <a href="#contacto" class="exp-link">↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<div class="about-wrap">
+  <div class="about-inner">
+    <div class="about-imgs reveal">
+      <img class="about-img-main"
+        src="https://images.unsplash.com/photo-1531761535209-180857e963b9?w=900&q=80&fit=crop"
+        alt="Guía en Patagonia" loading="lazy">
+      <img class="about-img-accent"
+        src="https://images.unsplash.com/photo-1543722530-d2c3201371e7?w=600&q=80&fit=crop"
+        alt="Lago patagónico" loading="lazy">
+      <div class="about-badge">
+        <span class="about-badge-num">12+</span>
+        años<br>en la Patagonia
+      </div>
+    </div>
+    <div class="reveal d1">
+      <div class="section-label">Nuestra esencia</div>
+      <h2 class="about-title">El lujo verdadero es<br><em>lo que no se puede<br>comprar en otro lugar</em></h2>
+      <p class="about-text">Yuco Travel nació de una convicción simple: la Patagonia merece ser experimentada con la profundidad que exige su grandeza. No somos una agencia de tours — somos arquitectos de momentos que cambian perspectivas.</p>
+      <p class="about-text">Cada itinerario es diseñado a medida, con acceso a lugares que no aparecen en ningún mapa turístico, guiados por expertos locales que conocen cada glaciar, cada viento, cada silencio.</p>
+      <div class="about-pills">
+        <span class="pill pill-sage">🌿 Grupos reducidos</span>
+        <span class="pill pill-sky">🛶 Acceso exclusivo</span>
+        <span class="pill pill-terr">🦅 Guías expertos</span>
+        <span class="pill pill-sage">♻️ Turismo sostenible</span>
+        <span class="pill pill-sky">⭐ Alojamiento premium</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DESTINATIONS -->
+<section class="dest-section" id="destinos">
+  <div class="dest-inner">
+    <div class="dest-header reveal">
+      <div>
+        <div class="section-label" style="color:var(--sage);">Donde viajamos</div>
+        <h2 class="dest-title">Los rincones<br><em>más salvajes</em></h2>
+      </div>
+      <p class="dest-sub">Cada destino elegido por su capacidad de transformar al viajero. No buscamos lo conocido; buscamos lo que despierta.</p>
+    </div>
+    <div class="dest-grid">
+      <div class="dest-card reveal">
+        <img class="dest-card-img"
+          src="https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?w=600&q=80&fit=crop&crop=center"
+          alt="Torres del Paine" loading="lazy">
+        <div class="dest-card-overlay"></div>
+        <div class="dest-card-content">
+          <div class="dest-card-country">Chile · Magallanes</div>
+          <div class="dest-card-name">Torres del Paine</div>
+        </div>
+      </div>
+      <div class="dest-card reveal d1">
+        <img class="dest-card-img"
+          src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80&fit=crop&crop=top"
+          alt="El Chaltén" loading="lazy">
+        <div class="dest-card-overlay"></div>
+        <div class="dest-card-content">
+          <div class="dest-card-country">Argentina · Santa Cruz</div>
+          <div class="dest-card-name">El Chaltén</div>
+        </div>
+      </div>
+      <div class="dest-card reveal d2">
+        <img class="dest-card-img"
+          src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&fit=crop"
+          alt="Tierra del Fuego" loading="lazy">
+        <div class="dest-card-overlay"></div>
+        <div class="dest-card-content">
+          <div class="dest-card-country">Arg / Chile · Fin del Mundo</div>
+          <div class="dest-card-name">Tierra del Fuego</div>
+        </div>
+      </div>
+      <div class="dest-card reveal d3">
+        <img class="dest-card-img"
+          src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80&fit=crop"
+          alt="Carretera Austral" loading="lazy">
+        <div class="dest-card-overlay"></div>
+        <div class="dest-card-content">
+          <div class="dest-card-country">Chile · Aysén</div>
+          <div class="dest-card-name">Carretera Austral</div>
+        </div>
+      </div>
+      <div class="dest-card reveal d4">
+        <img class="dest-card-img"
+          src="https://images.unsplash.com/photo-1535041422672-8c3254ab4b92?w=600&q=80&fit=crop"
+          alt="Los Glaciares" loading="lazy">
+        <div class="dest-card-overlay"></div>
+        <div class="dest-card-content">
+          <div class="dest-card-country">Argentina · Patagonia Andina</div>
+          <div class="dest-card-name">Los Glaciares</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<div class="process-wrap" id="proceso">
+  <div class="process-inner">
+    <div class="reveal">
+      <div class="section-label">Cómo trabajamos</div>
+      <h2 class="process-title">Cuatro pasos hacia<br><em>lo extraordinario</em></h2>
+    </div>
+    <div class="process-grid">
+      <div class="process-card reveal">
+        <div class="process-step-num sn1">01</div>
+        <div class="process-card-title">Primera Conversación</div>
+        <p class="process-card-desc">Nos reunimos para entender no solo qué querés ver, sino quién sos como viajero y qué buscás llevar de vuelta.</p>
+      </div>
+      <div class="process-card reveal d1">
+        <div class="process-step-num sn2">02</div>
+        <div class="process-card-title">Diseño a Medida</div>
+        <p class="process-card-desc">Creamos un itinerario único, seleccionando cada lodge, guía y experiencia con precisión y atención al detalle.</p>
+      </div>
+      <div class="process-card reveal d2">
+        <div class="process-step-num sn3">03</div>
+        <div class="process-card-title">La Expedición</div>
+        <p class="process-card-desc">Viajás con soporte 24/7, un concierge dedicado y la libertad total de adaptar el viaje en tiempo real.</p>
+      </div>
+      <div class="process-card reveal d3">
+        <div class="process-step-num sn4">04</div>
+        <div class="process-card-title">El Regreso</div>
+        <p class="process-card-desc">Te acompañamos en el proceso de integrar la experiencia y planificamos tu próximo retorno a la Patagonia.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIAL -->
+<div class="testimonial-wrap">
+  <div class="testimonial-stars">★★★★★</div>
+  <p class="testimonial-quote reveal">
+    "La Patagonia no es un destino que se tacha de una lista. Es un estado del alma que uno lleva consigo para siempre — y Yuco Travel supo entender eso desde el primer minuto."
+  </p>
+  <p class="testimonial-author reveal d1">— Valentina R., Buenos Aires</p>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-wrap" id="contacto">
+  <div class="contact-inner">
+    <div class="reveal">
+      <div class="section-label">Comenzar</div>
+      <h2 class="contact-title">Tu Patagonia<br><em>te está esperando</em></h2>
+      <p class="contact-desc">Completá este formulario y un especialista de Yuco Travel te contacta en menos de 24 horas para empezar a diseñar tu viaje.</p>
+      <div class="contact-info-item">
+        <div class="contact-info-icon">📧</div>
+        <div>
+          <div class="contact-info-label">Email</div>
+          <div class="contact-info-val">hola@yucotravel.com</div>
+        </div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-icon">📍</div>
+        <div>
+          <div class="contact-info-label">Oficinas</div>
+          <div class="contact-info-val">Buenos Aires, Argentina · Puerto Natales, Chile</div>
+        </div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-icon">📞</div>
+        <div>
+          <div class="contact-info-label">Teléfono</div>
+          <div class="contact-info-val">+54 11 0000-0000</div>
+        </div>
+      </div>
+    </div>
+
+    <form class="reveal d1" onsubmit="handleSubmit(event)">
+      <div class="form-row-2">
+        <div class="form-group">
+          <label class="form-label">Nombre</label>
+          <input class="form-input" type="text" placeholder="Tu nombre completo" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input class="form-input" type="email" placeholder="tu@email.com" required>
+        </div>
+      </div>
+      <div class="form-row-2">
+        <div class="form-group">
+          <label class="form-label">Ciudad de origen</label>
+          <input class="form-input" type="text" placeholder="¿Desde dónde viajás?">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Período estimado</label>
+          <input class="form-input" type="text" placeholder="Ej: Enero 2026">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Experiencia de interés</label>
+        <select class="form-select">
+          <option value="" disabled selected>Seleccioná una experiencia</option>
+          <option>Torres del Paine Privado</option>
+          <option>Perito Moreno en Yate</option>
+          <option>Estancia Privada</option>
+          <option>Noche Austral</option>
+          <option>Itinerario combinado</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">¿Qué buscás en este viaje?</label>
+        <textarea class="form-textarea" placeholder="Contanos qué soñás encontrar en la Patagonia…"></textarea>
+      </div>
+      <button class="form-submit" type="submit" id="submitBtn">Enviar consulta →</button>
+    </form>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">Yuco <span>Travel</span></div>
+      <p class="footer-tagline">Arquitectos de experiencias en los confines más sublimes del planeta. Patagonia de lujo, diseñada a medida.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Navegación</div>
+      <ul class="footer-links">
+        <li><a href="#experiencias">Experiencias</a></li>
+        <li><a href="#destinos">Destinos</a></li>
+        <li><a href="#proceso">Nuestro Proceso</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Experiencias</div>
+      <ul class="footer-links">
+        <li><a href="#contacto">Torres del Paine</a></li>
+        <li><a href="#contacto">Perito Moreno</a></li>
+        <li><a href="#contacto">Estancia Privada</a></li>
+        <li><a href="#contacto">Noche Austral</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contacto</div>
+      <ul class="footer-links">
+        <li><a href="mailto:hola@yucotravel.com">hola@yucotravel.com</a></li>
+        <li><a href="#">+54 11 0000-0000</a></li>
+        <li><a href="#">Buenos Aires, AR</a></li>
+        <li><a href="#">Puerto Natales, CL</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Yuco Travel · Todos los derechos reservados.</span>
+    <span class="footer-copy">Diseñado para los que buscan más.</span>
+  </div>
+</footer>
+
+<script>
+  // Navbar scroll shadow
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = '✓ Consulta enviada — te contactamos pronto';
+    btn.style.background = 'var(--sage-dk)';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = 'Enviar consulta →';
+      btn.style.background = '';
+      btn.disabled = false;
+      e.target.reset();
+    }, 4500);
+  }
+</script>
+</body>
+</html>
