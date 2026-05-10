@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yuco Travel — Patagonia de Lujo</title>
+  <title>Yuco Travel — Luxury Patagonia</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -365,10 +365,7 @@
     }
 
     /* ABOUT */
-    .about-wrap {
-      padding: 7rem 5vw;
-      background: var(--cream);
-    }
+    .about-wrap { padding: 7rem 5vw; background: var(--cream); }
     .about-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -496,11 +493,7 @@
       position: absolute; inset: 0;
       background: linear-gradient(to top, rgba(20,30,24,0.85) 0%, rgba(20,30,24,0.15) 55%, transparent 100%);
     }
-    .dest-card-content {
-      position: absolute;
-      bottom: 0;
-      padding: 1.4rem;
-    }
+    .dest-card-content { position: absolute; bottom: 0; padding: 1.4rem; }
     .dest-card-country {
       font-size: 0.6rem;
       letter-spacing: 0.1em;
@@ -567,11 +560,7 @@
     .process-card-desc { font-size: 0.78rem; color: var(--ink-lt); line-height: 1.85; }
 
     /* TESTIMONIAL */
-    .testimonial-wrap {
-      background: var(--sky-lt);
-      padding: 6rem 5vw;
-      text-align: center;
-    }
+    .testimonial-wrap { background: var(--sky-lt); padding: 6rem 5vw; text-align: center; }
     .testimonial-quote {
       font-family: 'Playfair Display', serif;
       font-size: clamp(1.5rem, 2.8vw, 2.3rem);
@@ -622,7 +611,6 @@
       color: var(--ink-lt); margin-bottom: 0.2rem;
     }
     .contact-info-val { font-size: 0.85rem; color: var(--ink); }
-
     .form-group { margin-bottom: 1rem; }
     .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     .form-label {
@@ -742,144 +730,148 @@
 <nav id="navbar">
   <div class="logo">Yuco <span>Travel</span></div>
   <ul class="nav-links">
-    <li><a href="#experiencias">Experiencias</a></li>
-    <li><a href="#destinos">Destinos</a></li>
-    <li><a href="#proceso">Proceso</a></li>
-    <li><a href="#contacto" class="nav-cta">Consultar</a></li>
+    <li><a href="#experiences">Experiences</a></li>
+    <li><a href="#destinations">Destinations</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact" class="nav-cta">Get in touch</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
-<section class="hero" id="inicio">
+<section class="hero" id="home">
   <div class="hero-left">
-    <div class="hero-badge">Patagonia · Viajes de Lujo</div>
+    <div class="hero-badge">Patagonia · Luxury Travel</div>
     <h1 class="hero-title">
-      Donde el mundo<br>aún es <em>infinito</em>
+      Where the world<br>is still <em>infinite</em>
     </h1>
     <p class="hero-desc">
-      Experiencias privadas e irrepetibles en los paisajes más salvajes del planeta. Cada viaje diseñado a medida, solo para vos.
+      Private, unrepeatable experiences in the wildest landscapes on earth. Every journey crafted exclusively for you.
     </p>
     <div class="hero-actions">
-      <a href="#contacto" class="btn-primary">Diseñar mi viaje →</a>
-      <a href="#experiencias" class="btn-ghost">Ver experiencias</a>
+      <a href="#contact" class="btn-primary">Plan my trip →</a>
+      <a href="#experiences" class="btn-ghost">See experiences</a>
     </div>
     <div class="hero-stats">
       <div>
         <div class="hstat-num">12+</div>
-        <div class="hstat-label">Años en Patagonia</div>
+        <div class="hstat-label">Years in Patagonia</div>
       </div>
       <div>
         <div class="hstat-num">340+</div>
-        <div class="hstat-label">Viajeros acompañados</div>
+        <div class="hstat-label">Travelers guided</div>
       </div>
       <div>
         <div class="hstat-num">100%</div>
-        <div class="hstat-label">Itinerarios únicos</div>
+        <div class="hstat-label">Bespoke itineraries</div>
       </div>
     </div>
   </div>
 
   <div class="hero-right">
     <img class="hero-main-img"
-      src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1200&q=85&fit=crop&crop=center"
+      src="/mnt/user-data/uploads/Patagonia_Principal.webp"
       alt="Patagonia landscape">
     <div class="hero-overlay"></div>
     <div class="hero-float-card card-1">
       <div class="fcard-icon green">🏔️</div>
       <div>
         <div class="fcard-title">Torres del Paine</div>
-        <div class="fcard-sub">Acceso privado disponible</div>
+        <div class="fcard-sub">Private access available</div>
       </div>
     </div>
     <div class="hero-float-card card-2">
       <div class="fcard-icon orange">⭐</div>
       <div>
-        <div class="fcard-title">5.0 · 340 reseñas</div>
-        <div class="fcard-sub">Experiencia premium</div>
+        <div class="fcard-title">5.0 · 340 reviews</div>
+        <div class="fcard-sub">Premium experience</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- EXPERIENCES -->
-<section class="exp-section" id="experiencias">
+<section class="exp-section" id="experiences">
   <div class="exp-header reveal">
     <div>
-      <div class="section-label">Lo que ofrecemos</div>
-      <h2 class="exp-title">Experiencias<br><em>diseñadas para pocos</em></h2>
+      <div class="section-label">What we offer</div>
+      <h2 class="exp-title">Experiences<br><em>crafted for the few</em></h2>
     </div>
-    <p class="exp-sub">Grupos pequeños, guías expertos, alojamientos únicos. La Patagonia en su versión más íntima.</p>
+    <p class="exp-sub">Small groups, expert guides, unique lodges. Patagonia at its most intimate.</p>
   </div>
 
   <div class="exp-grid">
+    <!-- Torres del Paine — wide card -->
     <div class="exp-card wide reveal">
       <div class="exp-img-wrap">
         <img class="exp-img"
-          src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=80&fit=crop"
+          src="/mnt/user-data/uploads/Torres_Paine.jpg"
           alt="Torres del Paine" loading="lazy">
         <div class="exp-img-overlay"></div>
-        <div class="exp-tag-pill">Trekking · Expedición</div>
+        <div class="exp-tag-pill">Trekking · Expedition</div>
       </div>
       <div class="exp-body">
-        <div class="exp-name">Torres del Paine Privado</div>
-        <p class="exp-desc-text">Acceso exclusivo al circuito W con guías especializados, lodge de lujo y helicóptero de soporte incluido.</p>
+        <div class="exp-name">Torres del Paine — Private</div>
+        <p class="exp-desc-text">Exclusive access to the W circuit with specialist guides, a luxury lodge and helicopter support included throughout.</p>
         <div class="exp-footer">
-          <span class="exp-duration">7–10 días</span>
-          <a href="#contacto" class="exp-link">↗</a>
+          <span class="exp-duration">7–10 days</span>
+          <a href="#contact" class="exp-link">↗</a>
         </div>
       </div>
     </div>
 
+    <!-- Perito Moreno -->
     <div class="exp-card reveal d1">
       <div class="exp-img-wrap">
         <img class="exp-img"
-          src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=800&q=80&fit=crop"
-          alt="Glaciar Perito Moreno" loading="lazy">
+          src="/mnt/user-data/uploads/Perito_Moreno.jpg"
+          alt="Perito Moreno Glacier" loading="lazy">
         <div class="exp-img-overlay"></div>
-        <div class="exp-tag-pill">Glaciares · Navegación</div>
+        <div class="exp-tag-pill">Glaciers · Sailing</div>
       </div>
       <div class="exp-body">
-        <div class="exp-name">Perito Moreno en Yate</div>
-        <p class="exp-desc-text">Crucero privado con sommelier a bordo y noche flotante bajo el cielo austral.</p>
+        <div class="exp-name">Perito Moreno by Yacht</div>
+        <p class="exp-desc-text">Private cruise with an on-board sommelier and a floating night under the southern sky.</p>
         <div class="exp-footer">
-          <span class="exp-duration">4–5 días</span>
-          <a href="#contacto" class="exp-link">↗</a>
+          <span class="exp-duration">4–5 days</span>
+          <a href="#contact" class="exp-link">↗</a>
         </div>
       </div>
     </div>
 
+    <!-- Estancia -->
     <div class="exp-card reveal d2">
       <div class="exp-img-wrap">
         <img class="exp-img"
-          src="https://images.unsplash.com/photo-1583396618422-8e71e87c3ba8?w=800&q=80&fit=crop"
-          alt="Estancia Patagónica" loading="lazy">
+          src="/mnt/user-data/uploads/Estancia_Patagonia.jpg"
+          alt="Patagonian Estancia" loading="lazy">
         <div class="exp-img-overlay"></div>
-        <div class="exp-tag-pill">Estancia · Cultura</div>
+        <div class="exp-tag-pill">Estancia · Culture</div>
       </div>
       <div class="exp-body">
-        <div class="exp-name">Estancia Privada</div>
-        <p class="exp-desc-text">Inmersión gaucha auténtica con gastronomía de autor y cabalgatas al atardecer.</p>
+        <div class="exp-name">Private Estancia</div>
+        <p class="exp-desc-text">Authentic gaucho immersion with signature Patagonian cuisine and sunset horseback rides.</p>
         <div class="exp-footer">
-          <span class="exp-duration">3–4 días</span>
-          <a href="#contacto" class="exp-link">↗</a>
+          <span class="exp-duration">3–4 days</span>
+          <a href="#contact" class="exp-link">↗</a>
         </div>
       </div>
     </div>
 
+    <!-- El Chaltén Trekking -->
     <div class="exp-card reveal d3">
       <div class="exp-img-wrap">
         <img class="exp-img"
-          src="https://images.unsplash.com/photo-1534254842987-4de97b7a2a12?w=800&q=80&fit=crop"
-          alt="Cielo nocturno Patagonia" loading="lazy">
+          src="/mnt/user-data/uploads/Chalten_Trekking.webp"
+          alt="El Chaltén Trekking" loading="lazy">
         <div class="exp-img-overlay"></div>
-        <div class="exp-tag-pill">Astronomía · Silencio</div>
+        <div class="exp-tag-pill">Trekking · Adventure</div>
       </div>
       <div class="exp-body">
-        <div class="exp-name">Noche Austral</div>
-        <p class="exp-desc-text">Observación del cielo más oscuro del mundo con astrónomo privado y lodge remoto.</p>
+        <div class="exp-name">El Chaltén Trekking</div>
+        <p class="exp-desc-text">Private guided hikes to Mount Fitz Roy and Cerro Torre, the world's most dramatic trekking destination.</p>
         <div class="exp-footer">
-          <span class="exp-duration">2–3 días</span>
-          <a href="#contacto" class="exp-link">↗</a>
+          <span class="exp-duration">4–6 days</span>
+          <a href="#contact" class="exp-link">↗</a>
         </div>
       </div>
     </div>
@@ -891,46 +883,46 @@
   <div class="about-inner">
     <div class="about-imgs reveal">
       <img class="about-img-main"
-        src="https://images.unsplash.com/photo-1531761535209-180857e963b9?w=900&q=80&fit=crop"
-        alt="Guía en Patagonia" loading="lazy">
+        src="/mnt/user-data/uploads/Torres_Paine.jpg"
+        alt="Torres del Paine view" loading="lazy">
       <img class="about-img-accent"
-        src="https://images.unsplash.com/photo-1543722530-d2c3201371e7?w=600&q=80&fit=crop"
-        alt="Lago patagónico" loading="lazy">
+        src="/mnt/user-data/uploads/Estancia_Patagonia.jpg"
+        alt="Estancia Patagonia" loading="lazy">
       <div class="about-badge">
         <span class="about-badge-num">12+</span>
-        años<br>en la Patagonia
+        years<br>in Patagonia
       </div>
     </div>
     <div class="reveal d1">
-      <div class="section-label">Nuestra esencia</div>
-      <h2 class="about-title">El lujo verdadero es<br><em>lo que no se puede<br>comprar en otro lugar</em></h2>
-      <p class="about-text">Yuco Travel nació de una convicción simple: la Patagonia merece ser experimentada con la profundidad que exige su grandeza. No somos una agencia de tours — somos arquitectos de momentos que cambian perspectivas.</p>
-      <p class="about-text">Cada itinerario es diseñado a medida, con acceso a lugares que no aparecen en ningún mapa turístico, guiados por expertos locales que conocen cada glaciar, cada viento, cada silencio.</p>
+      <div class="section-label">Our essence</div>
+      <h2 class="about-title">True luxury is<br><em>what cannot be found<br>anywhere else</em></h2>
+      <p class="about-text">Yuco Travel was born from a simple conviction: Patagonia deserves to be experienced with the depth its grandeur demands. We are not a tour agency — we are architects of moments that change perspectives.</p>
+      <p class="about-text">Every itinerary is crafted from scratch, granting access to places that appear on no tourist map, guided by local experts who know every glacier, every wind, every silence.</p>
       <div class="about-pills">
-        <span class="pill pill-sage">🌿 Grupos reducidos</span>
-        <span class="pill pill-sky">🛶 Acceso exclusivo</span>
-        <span class="pill pill-terr">🦅 Guías expertos</span>
-        <span class="pill pill-sage">♻️ Turismo sostenible</span>
-        <span class="pill pill-sky">⭐ Alojamiento premium</span>
+        <span class="pill pill-sage">🌿 Small groups</span>
+        <span class="pill pill-sky">🛶 Exclusive access</span>
+        <span class="pill pill-terr">🦅 Expert guides</span>
+        <span class="pill pill-sage">♻️ Sustainable travel</span>
+        <span class="pill pill-sky">⭐ Premium lodges</span>
       </div>
     </div>
   </div>
 </div>
 
 <!-- DESTINATIONS -->
-<section class="dest-section" id="destinos">
+<section class="dest-section" id="destinations">
   <div class="dest-inner">
     <div class="dest-header reveal">
       <div>
-        <div class="section-label" style="color:var(--sage);">Donde viajamos</div>
-        <h2 class="dest-title">Los rincones<br><em>más salvajes</em></h2>
+        <div class="section-label" style="color:var(--sage);">Where we travel</div>
+        <h2 class="dest-title">The wildest<br><em>corners of the earth</em></h2>
       </div>
-      <p class="dest-sub">Cada destino elegido por su capacidad de transformar al viajero. No buscamos lo conocido; buscamos lo que despierta.</p>
+      <p class="dest-sub">Each destination chosen for its power to transform the traveler. We don't seek the familiar — we seek what awakens.</p>
     </div>
     <div class="dest-grid">
       <div class="dest-card reveal">
         <img class="dest-card-img"
-          src="https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?w=600&q=80&fit=crop&crop=center"
+          src="/mnt/user-data/uploads/Torres_Paine.jpg"
           alt="Torres del Paine" loading="lazy">
         <div class="dest-card-overlay"></div>
         <div class="dest-card-content">
@@ -940,7 +932,7 @@
       </div>
       <div class="dest-card reveal d1">
         <img class="dest-card-img"
-          src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80&fit=crop&crop=top"
+          src="/mnt/user-data/uploads/Chalten_Trekking.webp"
           alt="El Chaltén" loading="lazy">
         <div class="dest-card-overlay"></div>
         <div class="dest-card-content">
@@ -950,18 +942,18 @@
       </div>
       <div class="dest-card reveal d2">
         <img class="dest-card-img"
-          src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&fit=crop"
-          alt="Tierra del Fuego" loading="lazy">
+          src="/mnt/user-data/uploads/Patagonia_Principal.webp"
+          alt="Patagonia" loading="lazy">
         <div class="dest-card-overlay"></div>
         <div class="dest-card-content">
-          <div class="dest-card-country">Arg / Chile · Fin del Mundo</div>
+          <div class="dest-card-country">Arg / Chile · End of the World</div>
           <div class="dest-card-name">Tierra del Fuego</div>
         </div>
       </div>
       <div class="dest-card reveal d3">
         <img class="dest-card-img"
-          src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80&fit=crop"
-          alt="Carretera Austral" loading="lazy">
+          src="/mnt/user-data/uploads/Estancia_Patagonia.jpg"
+          alt="Estancia" loading="lazy">
         <div class="dest-card-overlay"></div>
         <div class="dest-card-content">
           <div class="dest-card-country">Chile · Aysén</div>
@@ -970,11 +962,11 @@
       </div>
       <div class="dest-card reveal d4">
         <img class="dest-card-img"
-          src="https://images.unsplash.com/photo-1535041422672-8c3254ab4b92?w=600&q=80&fit=crop"
+          src="/mnt/user-data/uploads/Perito_Moreno.jpg"
           alt="Los Glaciares" loading="lazy">
         <div class="dest-card-overlay"></div>
         <div class="dest-card-content">
-          <div class="dest-card-country">Argentina · Patagonia Andina</div>
+          <div class="dest-card-country">Argentina · Andean Patagonia</div>
           <div class="dest-card-name">Los Glaciares</div>
         </div>
       </div>
@@ -983,32 +975,32 @@
 </section>
 
 <!-- PROCESS -->
-<div class="process-wrap" id="proceso">
+<div class="process-wrap" id="process">
   <div class="process-inner">
     <div class="reveal">
-      <div class="section-label">Cómo trabajamos</div>
-      <h2 class="process-title">Cuatro pasos hacia<br><em>lo extraordinario</em></h2>
+      <div class="section-label">How we work</div>
+      <h2 class="process-title">Four steps toward<br><em>the extraordinary</em></h2>
     </div>
     <div class="process-grid">
       <div class="process-card reveal">
         <div class="process-step-num sn1">01</div>
-        <div class="process-card-title">Primera Conversación</div>
-        <p class="process-card-desc">Nos reunimos para entender no solo qué querés ver, sino quién sos como viajero y qué buscás llevar de vuelta.</p>
+        <div class="process-card-title">First Conversation</div>
+        <p class="process-card-desc">We sit down to understand not only what you want to see, but who you are as a traveler and what you hope to bring back.</p>
       </div>
       <div class="process-card reveal d1">
         <div class="process-step-num sn2">02</div>
-        <div class="process-card-title">Diseño a Medida</div>
-        <p class="process-card-desc">Creamos un itinerario único, seleccionando cada lodge, guía y experiencia con precisión y atención al detalle.</p>
+        <div class="process-card-title">Bespoke Design</div>
+        <p class="process-card-desc">We craft a one-of-a-kind itinerary, hand-picking every lodge, guide and experience with meticulous attention to detail.</p>
       </div>
       <div class="process-card reveal d2">
         <div class="process-step-num sn3">03</div>
-        <div class="process-card-title">La Expedición</div>
-        <p class="process-card-desc">Viajás con soporte 24/7, un concierge dedicado y la libertad total de adaptar el viaje en tiempo real.</p>
+        <div class="process-card-title">The Expedition</div>
+        <p class="process-card-desc">You travel with 24/7 support, a dedicated concierge and the freedom to adapt your journey in real time.</p>
       </div>
       <div class="process-card reveal d3">
         <div class="process-step-num sn4">04</div>
-        <div class="process-card-title">El Regreso</div>
-        <p class="process-card-desc">Te acompañamos en el proceso de integrar la experiencia y planificamos tu próximo retorno a la Patagonia.</p>
+        <div class="process-card-title">The Return</div>
+        <p class="process-card-desc">We accompany you as you integrate the experience and begin planning your next journey back to Patagonia.</p>
       </div>
     </div>
   </div>
@@ -1018,36 +1010,36 @@
 <div class="testimonial-wrap">
   <div class="testimonial-stars">★★★★★</div>
   <p class="testimonial-quote reveal">
-    "La Patagonia no es un destino que se tacha de una lista. Es un estado del alma que uno lleva consigo para siempre — y Yuco Travel supo entender eso desde el primer minuto."
+    "Patagonia is not a destination you tick off a list. It is a state of the soul you carry with you forever — and Yuco Travel understood that from the very first minute."
   </p>
   <p class="testimonial-author reveal d1">— Valentina R., Buenos Aires</p>
 </div>
 
 <!-- CONTACT -->
-<div class="contact-wrap" id="contacto">
+<div class="contact-wrap" id="contact">
   <div class="contact-inner">
     <div class="reveal">
-      <div class="section-label">Comenzar</div>
-      <h2 class="contact-title">Tu Patagonia<br><em>te está esperando</em></h2>
-      <p class="contact-desc">Completá este formulario y un especialista de Yuco Travel te contacta en menos de 24 horas para empezar a diseñar tu viaje.</p>
+      <div class="section-label">Get started</div>
+      <h2 class="contact-title">Your Patagonia<br><em>is waiting for you</em></h2>
+      <p class="contact-desc">Fill in this form and a Yuco Travel specialist will reach out within 24 hours to start designing your journey.</p>
       <div class="contact-info-item">
         <div class="contact-info-icon">📧</div>
         <div>
           <div class="contact-info-label">Email</div>
-          <div class="contact-info-val">hola@yucotravel.com</div>
+          <div class="contact-info-val">hello@yucotravel.com</div>
         </div>
       </div>
       <div class="contact-info-item">
         <div class="contact-info-icon">📍</div>
         <div>
-          <div class="contact-info-label">Oficinas</div>
+          <div class="contact-info-label">Offices</div>
           <div class="contact-info-val">Buenos Aires, Argentina · Puerto Natales, Chile</div>
         </div>
       </div>
       <div class="contact-info-item">
         <div class="contact-info-icon">📞</div>
         <div>
-          <div class="contact-info-label">Teléfono</div>
+          <div class="contact-info-label">Phone</div>
           <div class="contact-info-val">+54 11 0000-0000</div>
         </div>
       </div>
@@ -1056,40 +1048,40 @@
     <form class="reveal d1" onsubmit="handleSubmit(event)">
       <div class="form-row-2">
         <div class="form-group">
-          <label class="form-label">Nombre</label>
-          <input class="form-input" type="text" placeholder="Tu nombre completo" required>
+          <label class="form-label">Name</label>
+          <input class="form-input" type="text" placeholder="Your full name" required>
         </div>
         <div class="form-group">
           <label class="form-label">Email</label>
-          <input class="form-input" type="email" placeholder="tu@email.com" required>
+          <input class="form-input" type="email" placeholder="you@email.com" required>
         </div>
       </div>
       <div class="form-row-2">
         <div class="form-group">
-          <label class="form-label">Ciudad de origen</label>
-          <input class="form-input" type="text" placeholder="¿Desde dónde viajás?">
+          <label class="form-label">City of origin</label>
+          <input class="form-input" type="text" placeholder="Where are you traveling from?">
         </div>
         <div class="form-group">
-          <label class="form-label">Período estimado</label>
-          <input class="form-input" type="text" placeholder="Ej: Enero 2026">
+          <label class="form-label">Estimated dates</label>
+          <input class="form-input" type="text" placeholder="e.g. January 2026">
         </div>
       </div>
       <div class="form-group">
-        <label class="form-label">Experiencia de interés</label>
+        <label class="form-label">Experience of interest</label>
         <select class="form-select">
-          <option value="" disabled selected>Seleccioná una experiencia</option>
-          <option>Torres del Paine Privado</option>
-          <option>Perito Moreno en Yate</option>
-          <option>Estancia Privada</option>
-          <option>Noche Austral</option>
-          <option>Itinerario combinado</option>
+          <option value="" disabled selected>Select an experience</option>
+          <option>Torres del Paine — Private</option>
+          <option>Perito Moreno by Yacht</option>
+          <option>Private Estancia</option>
+          <option>El Chaltén Trekking</option>
+          <option>Combined itinerary</option>
         </select>
       </div>
       <div class="form-group">
-        <label class="form-label">¿Qué buscás en este viaje?</label>
-        <textarea class="form-textarea" placeholder="Contanos qué soñás encontrar en la Patagonia…"></textarea>
+        <label class="form-label">What are you looking for in this trip?</label>
+        <textarea class="form-textarea" placeholder="Tell us what you dream of finding in Patagonia…"></textarea>
       </div>
-      <button class="form-submit" type="submit" id="submitBtn">Enviar consulta →</button>
+      <button class="form-submit" type="submit" id="submitBtn">Send my inquiry →</button>
     </form>
   </div>
 </div>
@@ -1099,30 +1091,30 @@
   <div class="footer-top">
     <div>
       <div class="footer-logo">Yuco <span>Travel</span></div>
-      <p class="footer-tagline">Arquitectos de experiencias en los confines más sublimes del planeta. Patagonia de lujo, diseñada a medida.</p>
+      <p class="footer-tagline">Architects of experiences at the most sublime edges of the planet. Luxury Patagonia, designed for you.</p>
     </div>
     <div>
-      <div class="footer-col-title">Navegación</div>
+      <div class="footer-col-title">Navigation</div>
       <ul class="footer-links">
-        <li><a href="#experiencias">Experiencias</a></li>
-        <li><a href="#destinos">Destinos</a></li>
-        <li><a href="#proceso">Nuestro Proceso</a></li>
-        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#experiences">Experiences</a></li>
+        <li><a href="#destinations">Destinations</a></li>
+        <li><a href="#process">Our Process</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-title">Experiencias</div>
+      <div class="footer-col-title">Experiences</div>
       <ul class="footer-links">
-        <li><a href="#contacto">Torres del Paine</a></li>
-        <li><a href="#contacto">Perito Moreno</a></li>
-        <li><a href="#contacto">Estancia Privada</a></li>
-        <li><a href="#contacto">Noche Austral</a></li>
+        <li><a href="#contact">Torres del Paine</a></li>
+        <li><a href="#contact">Perito Moreno</a></li>
+        <li><a href="#contact">Private Estancia</a></li>
+        <li><a href="#contact">El Chaltén Trekking</a></li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-title">Contacto</div>
+      <div class="footer-col-title">Contact</div>
       <ul class="footer-links">
-        <li><a href="mailto:hola@yucotravel.com">hola@yucotravel.com</a></li>
+        <li><a href="mailto:hello@yucotravel.com">hello@yucotravel.com</a></li>
         <li><a href="#">+54 11 0000-0000</a></li>
         <li><a href="#">Buenos Aires, AR</a></li>
         <li><a href="#">Puerto Natales, CL</a></li>
@@ -1130,19 +1122,17 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span class="footer-copy">© 2025 Yuco Travel · Todos los derechos reservados.</span>
-    <span class="footer-copy">Diseñado para los que buscan más.</span>
+    <span class="footer-copy">© 2025 Yuco Travel · All rights reserved.</span>
+    <span class="footer-copy">Designed for those who seek more.</span>
   </div>
 </footer>
 
 <script>
-  // Navbar scroll shadow
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 40);
   });
 
-  // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
@@ -1151,15 +1141,14 @@
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
 
-  // Form submit
   function handleSubmit(e) {
     e.preventDefault();
     const btn = document.getElementById('submitBtn');
-    btn.textContent = '✓ Consulta enviada — te contactamos pronto';
+    btn.textContent = '✓ Inquiry sent — we\'ll be in touch soon';
     btn.style.background = 'var(--sage-dk)';
     btn.disabled = true;
     setTimeout(() => {
-      btn.textContent = 'Enviar consulta →';
+      btn.textContent = 'Send my inquiry →';
       btn.style.background = '';
       btn.disabled = false;
       e.target.reset();
